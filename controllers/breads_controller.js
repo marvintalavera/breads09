@@ -5,12 +5,12 @@ const Bread = require('../models/bread.js')
 // INDEX
 breads.get('/', (req, res) => {
   Bread.find()
-      .then(foundBreads => {
-          res.render('index', {
-              breads: foundBreads,
-              title: 'Index Page'
-          })
+    .then(foundBreads => {
+      res.render('index', {
+        breads: foundBreads,
+        title: 'Index Page'
       })
+    })
 })
 
 // NEW
@@ -20,10 +20,10 @@ breads.get('/new', (req, res) => {
 
 // CREATE
 breads.post('/', (req, res) => {
-  if(!req.body.image) {
-      req.body.image = undefined 
+  if (!req.body.image) {
+    req.body.image = undefined
   }
-  if(req.body.hasGluten === 'on') {
+  if (req.body.hasGluten === 'on') {
     req.body.hasGluten = true
   } else {
     req.body.hasGluten = false
@@ -35,11 +35,11 @@ breads.post('/', (req, res) => {
 // SHOW
 breads.get('/:id', (req, res) => {
   Bread.findById(req.params.id)
-      .then(foundBread => {
-          res.render('show', {
-              bread: foundBread
-          })
+    .then(foundBread => {
+      res.render('show', {
+        bread: foundBread
       })
+    })
 })
 
 // EDIT
@@ -52,7 +52,7 @@ breads.get('/:indexArray/edit', (req, res) => {
 
 // UPDATE
 breads.put('/:arrayIndex', (req, res) => {
-  if(req.body.hasGluten === 'on'){
+  if (req.body.hasGluten === 'on') {
     req.body.hasGluten = true
   } else {
     req.body.hasGluten = false
