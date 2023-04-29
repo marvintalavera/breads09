@@ -8,7 +8,7 @@ function Show({ bread, index }) {
     <Default>
       <h3 style={{textAlign : "center"}}>{bread.name}</h3>
       <img src={bread.image} alt={bread.name} />
-      <p style={{textAlign : "center"}}>Baked by {bread.baker} and it
+      <p style={{textAlign : "center"}}> {bread.getBakedBy()} and it
         {
           bread.hasGluten
             ? <span> does </span>
