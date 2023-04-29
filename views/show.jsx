@@ -6,9 +6,9 @@ function Show({ bread, index }) {
   // console.log(bread.name)
   return (
     <Default>
-      <h3>{bread.name}</h3>
-      <p>
-        and it
+      <h3 style={{textAlign : "center"}}>{bread.name}</h3>
+      <img src={bread.image} alt={bread.name} />
+      <p style={{textAlign : "center"}}>Baked by {bread.baker} and it
         {
           bread.hasGluten
             ? <span> does </span>
@@ -16,18 +16,19 @@ function Show({ bread, index }) {
         }
         have gluten.
       </p>
-      <img src={bread.image} alt={bread.name} />
-      <li>
-        <a href="/breads">Go home</a>
+      <li style={{textAlign : "center"}}>
+        <a href="/breads" >Go home</a>
       </li>
-      <form action={`/breads/${bread.id}?_method=DELETE`} method="POST">
-        <input type='submit' value="DELETE" />
-      </form>
-      <a href={`/breads/${bread.id}/edit`}>
-        <button>
-          Edit
-        </button>
-      </a>
+      <div style={{display : "flex", justifyContent: "center"}}>
+        <a href={`/breads/${bread.id}/edit`}>
+          <button style={{marginRight : ".5em" }}>
+            Edit
+          </button>
+        </a>
+        <form action={`/breads/${bread.id}?_method=DELETE`} method="POST">
+          <input type='submit' value="DELETE" />
+        </form>
+      </div>
     </Default>
   )
 }
